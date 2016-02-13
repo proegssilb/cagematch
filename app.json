@@ -1,0 +1,16 @@
+{
+  "name": "cagematch",
+  "description": "Order any set of things via a-vs-b comparisons",
+  "scripts": {
+  },
+  "env": {
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "urn:buildpack:heroku/python"
+    }
+  ]
+}
