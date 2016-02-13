@@ -4,3 +4,4 @@ gunicorn==19.4.5
 mpmath==0.19
 six==1.10.0
 trueskill==0.4.4
+whitenoise==2.0.6
