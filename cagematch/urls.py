@@ -20,5 +20,6 @@ import match.views
 urlpatterns = [
     url(r'^match/', include('match.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^account/', include('django.contrib.auth.urls')),
     url(r'^$', match.views.index),
 ]
