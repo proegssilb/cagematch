@@ -32,12 +32,14 @@ ALLOWED_HOSTS = ['immense-lake-94437.herokuapp.com', 'match.algorithmicarmada.co
 # Application definition
 
 INSTALLED_APPS = [
+    'match.apps.MatchConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'guardian',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -129,3 +131,14 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# Custom Authorization
+# https://github.com/django-guardian/django-guardian
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend', # default
+    'guardian.backends.ObjectPermissionBackend',
+)
+
+ANONYMOUS_USER_ID = -1
+
+GUARDIAN_RAISE_403 = True
