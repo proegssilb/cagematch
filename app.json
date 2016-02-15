@@ -4,6 +4,11 @@
   "scripts": {
   },
   "env": {
+    "DJANGO_KEY": { "required": true },
+    "DJANGO_DEBUG": "True",
+    "AWS_KEY": { "required": true },
+    "AWS_SECRET": { "required": true },
+    "AWS_BUCKET": { "required": true }
   },
   "addons": [
     "heroku-postgresql"
