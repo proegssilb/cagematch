@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_KEY', 'h5)c+ge0d)(1fd1+h4*9@!i!(7r!as6qcbiysj=(kllam^duv*')
+SECRET_KEY = os.environ['DJANGO_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False if os.environ.get('DJANGO_DEBUG', 'True') in ['False', 'false', 'no'] else True
+DEBUG = True if os.environ.get('DJANGO_DEBUG', 'False') in ['True', 'true', 'yes'] else False
 
 ALLOWED_HOSTS = ['immense-lake-94437.herokuapp.com', 'match.algorithmicarmada.com']
 
@@ -142,3 +142,9 @@ AUTHENTICATION_BACKENDS = (
 ANONYMOUS_USER_ID = -1
 
 GUARDIAN_RAISE_403 = True
+
+# User uploads config
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = os.environ['AWS_KEY']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_BUCKET']
