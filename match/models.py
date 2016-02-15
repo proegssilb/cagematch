@@ -10,6 +10,9 @@ class Match(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL, null=True)
 
+    def __str__(self):
+        return '[Match: {}]'.format(self.matchTitle)
+
 class Item(models.Model):
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
     webPage = models.URLField(max_length=1024)
@@ -27,3 +30,8 @@ class Item(models.Model):
         self.sigma = rating.sigma
 
     rating = property(getRating, setRating)
+
+    def __str__(self):
+        mt = self.match.matchTitle[:50]
+        it = self.itemTitle
+        return '[Match , Item {}]'.format(mt, it)
